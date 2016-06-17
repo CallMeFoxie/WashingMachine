@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "washingmachine:washingmachine"
+  },
+  "variants": {
+    "facing=north": { "model": "washingmachine" },
+    "facing=south": { "model": "washingmachine", "y": 180 },
+    "facing=west":  { "model": "washingmachine", "y": 270 },
+    "facing=east":  { "model": "washingmachine", "y": 90 }
+  }
+}

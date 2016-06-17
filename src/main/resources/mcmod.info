@@ -1,0 +1,16 @@
+[
+{
+  "modid": "washingmachine",
+  "name": "Washing Machine",
+  "description": "How about if you could wash your armor in special washing powders like... a potion?!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CallMeFoxie"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
