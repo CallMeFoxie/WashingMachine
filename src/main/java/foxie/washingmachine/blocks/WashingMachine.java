@@ -7,6 +7,7 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -25,8 +26,9 @@ public class WashingMachine extends BlockContainer {
 
    public WashingMachine() {
       super(Material.IRON);
-      setUnlocalizedName("washingmachine:washingmachine");
+      setUnlocalizedName("washingmachine");
       setRegistryName("washingmachine:washingmachine");
+      setCreativeTab(CreativeTabs.REDSTONE);
       GameRegistry.register(this);
       GameRegistry.register(new ItemBlock(this), getRegistryName());
       setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -42,13 +44,11 @@ public class WashingMachine extends BlockContainer {
       return new WashingMachineTE();
    }
 
-   public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-   {
+   public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
       return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
    }
 
-   public EnumBlockRenderType getRenderType(IBlockState state)
-   {
+   public EnumBlockRenderType getRenderType(IBlockState state) {
       return EnumBlockRenderType.MODEL;
    }
 

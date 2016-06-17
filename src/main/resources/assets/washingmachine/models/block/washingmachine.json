@@ -1,8 +1,8 @@
 {
-  "parent": "block/orientable",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "top": "blocks/washingmachine_top",
-    "front": "blocks/washingmachine_front",
-    "side": "blocks/washingmachine_side"
+    "top": "washingmachine:blocks/washingmachine_top",
+    "front": "washingmachine:blocks/washingmachine_front",
+    "side": "washingmachine:blocks/washingmachine_side"
   }
 }
