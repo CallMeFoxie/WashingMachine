@@ -55,6 +55,12 @@ dependencies {
     compile "foxie:FoxieLib:1.10-1.0-4:deobf"
 }
 
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 processResources
         {
             inputs.property "version", project.version
