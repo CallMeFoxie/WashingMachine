@@ -7,12 +7,7 @@ public class SlotFilterInstanceof extends SlotCapability {
 
    Class[] classType;
 
-   public SlotFilterInstanceof(TileEntity entity, int par2, int par3, int par4, Class type) {
-      super(entity, par2, par3, par4);
-      this.classType = new Class[] { type };
-   }
-
-   public SlotFilterInstanceof(TileEntity entity, int par2, int par3, int par4, Class[] type) {
+   public SlotFilterInstanceof(TileEntity entity, int par2, int par3, int par4, Class... type) {
       super(entity, par2, par3, par4);
       this.classType = type;
    }
