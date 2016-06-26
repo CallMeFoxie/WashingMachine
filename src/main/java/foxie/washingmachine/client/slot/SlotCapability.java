@@ -25,6 +25,14 @@ public class SlotCapability extends Slot {
    @Nullable
    @Override
    public ItemStack getStack() {
+      if(handler.getStackInSlot(index) != null && handler.getStackInSlot(index).stackSize == 0) {
+         // workaround since we cannot insert NULL to reset stacksize when it reaches 0
+         ItemStack stack = handler.getStackInSlot(index);
+         stack.stackSize = 1;
+         handler.insertItem(index, stack, false);
+         handler.extractItem(index, 1, false);
+      }
+
       return handler.getStackInSlot(index);
    }
 
@@ -32,6 +40,9 @@ public class SlotCapability extends Slot {
    public void putStack(@Nullable ItemStack stack) {
       if(getStack() != null)
          handler.extractItem(index, handler.getStackInSlot(index).stackSize, false);
+
+      if(stack != null && stack.stackSize == 0)
+         stack = null;
 
       handler.insertItem(index, stack, false);
 
@@ -72,7 +83,7 @@ public class SlotCapability extends Slot {
 
    @Override
    public boolean isHere(IInventory inv, int slotIn) {
-      return super.isHere(inv, slotIn);
+      return false; // TODO better fix? We do not have IInventory anymore
    }
 
    @Override
