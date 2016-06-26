@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = WashingMachine.MODID, name = WashingMachine.NAME, version = WashingMachine.VERSION)
 public class WashingMachine {
@@ -27,6 +28,8 @@ public class WashingMachine {
    public void preinit(FMLPreInitializationEvent event) {
       events = new Events();
       config = new Config(event.getSuggestedConfigurationFile());
+
+      NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
       events.preinit();
 
