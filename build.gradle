@@ -52,7 +52,7 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile "foxie:FoxieLib:1.10-1.0-4:deobf"
+    compile "foxie:FoxieLib:1.10-1.0-7:deobf"
 }
 
 allprojects {

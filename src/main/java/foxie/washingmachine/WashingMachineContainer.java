@@ -1,7 +1,8 @@
 package foxie.washingmachine;
 
-import foxie.washingmachine.client.slot.SlotFilterInstanceof;
-import foxie.washingmachine.client.slot.SlotFilterItem;
+import foxie.lib.client.slot.SlotFilterInstanceof;
+import foxie.lib.client.slot.SlotFilterItem;
+import foxie.lib.inventory.SmartContainer;
 import foxie.washingmachine.proxy.ProxyCommon;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -11,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 public class WashingMachineContainer extends SmartContainer {
 
    public WashingMachineContainer(InventoryPlayer inv, TileEntity te) {
-      super(inv, te, 6);
+      super(te);
 
       addSlotToContainer(new SlotFilterItem(te, 0, 9, 8, Items.POTIONITEM, Items.SPLASH_POTION, ProxyCommon.wp));
       addSlotToContainer(new SlotFilterItem(te, 1, 31, 8, Items.POTIONITEM, Items.SPLASH_POTION, ProxyCommon.wp));
