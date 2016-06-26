@@ -40,7 +40,8 @@ public class WashingMachineTE extends TileEntity implements ICapabilityProvider,
    @Override
    public void readFromNBT(NBTTagCompound compound) {
       super.readFromNBT(compound);
-      inventory.deserializeNBT((NBTTagCompound) compound.getTag("inventory"));
+      if(compound.hasKey("inventory"))
+         inventory.deserializeNBT((NBTTagCompound) compound.getTag("inventory"));
    }
 
    @Override
