@@ -1,25 +1,25 @@
 package foxie.washingmachine;
 
-import foxie.washingmachine.client.slot.SlotCapability;
+import foxie.washingmachine.client.slot.SlotFilterInstanceof;
+import foxie.washingmachine.client.slot.SlotFilterItem;
+import foxie.washingmachine.proxy.ProxyCommon;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
 
 public class WashingMachineContainer extends SmartContainer {
 
    public WashingMachineContainer(InventoryPlayer inv, TileEntity te) {
       super(inv, te, 6);
 
-      IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+      addSlotToContainer(new SlotFilterItem(te, 0, 9, 8, Items.POTIONITEM, Items.SPLASH_POTION, ProxyCommon.wp));
+      addSlotToContainer(new SlotFilterItem(te, 1, 31, 8, Items.POTIONITEM, Items.SPLASH_POTION, ProxyCommon.wp));
 
-      addSlotToContainer(new SlotCapability(te, 0, 9, 8));
-      addSlotToContainer(new SlotCapability(te, 1, 31, 8));
-
-      addSlotToContainer(new SlotCapability(te, 2, 59, 29));
-      addSlotToContainer(new SlotCapability(te, 3, 77, 29));
-      addSlotToContainer(new SlotCapability(te, 4, 59, 47));
-      addSlotToContainer(new SlotCapability(te, 5, 77, 47));
+      addSlotToContainer(new SlotFilterInstanceof(te, 2, 59, 29, ItemArmor.class));
+      addSlotToContainer(new SlotFilterInstanceof(te, 3, 77, 29, ItemArmor.class));
+      addSlotToContainer(new SlotFilterInstanceof(te, 4, 59, 47, ItemArmor.class));
+      addSlotToContainer(new SlotFilterInstanceof(te, 5, 77, 47, ItemArmor.class));
 
       bindPlayerInventory(inv);
    }
