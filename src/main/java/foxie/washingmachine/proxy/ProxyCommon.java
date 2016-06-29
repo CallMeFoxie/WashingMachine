@@ -1,5 +1,6 @@
 package foxie.washingmachine.proxy;
 
+import foxie.lib.Registrator;
 import foxie.washingmachine.WashingPowder;
 import foxie.washingmachine.blocks.WashingMachine;
 import foxie.washingmachine.blocks.WashingMachineTE;
@@ -14,6 +15,8 @@ public class ProxyCommon {
    public void preinit() {
       wm = new WashingMachine();
       wp = new WashingPowder();
+
+      Registrator.checkConfigurable(WashingMachineTE.class);
       GameRegistry.registerTileEntity(WashingMachineTE.class, "washingmachine");
       GameRegistry.register(wp);
    }

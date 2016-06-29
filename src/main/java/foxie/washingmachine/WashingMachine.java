@@ -1,5 +1,7 @@
 package foxie.washingmachine;
 
+import foxie.lib.Config;
+import foxie.lib.IFoxieMod;
 import foxie.washingmachine.proxy.ProxyCommon;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -9,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = WashingMachine.MODID, name = WashingMachine.NAME, version = WashingMachine.VERSION)
-public class WashingMachine {
+public class WashingMachine implements IFoxieMod {
    public static final String MODID   = "washingmachine";
    public static final String NAME    = "Washing Machine";
    public static final String VERSION = "@VERSION@";
@@ -48,4 +50,13 @@ public class WashingMachine {
       events.postinit();
    }
 
+   @Override
+   public Config getConfig() {
+      return config;
+   }
+
+   @Override
+   public String getModId() {
+      return MODID;
+   }
 }
